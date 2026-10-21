@@ -1,5 +1,6 @@
 package com.velychko.movies.di
 
+import com.velychko.movies.BuildConfig
 import com.velychko.movies.data.remote.ApiKeyInterceptor
 import com.velychko.movies.data.remote.OmdbApi
 import com.velychko.movies.data.remote.OmdbJson
@@ -22,7 +23,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(ApiKeyInterceptor("")) // TODO: OMDB_API_KEY
+        .addInterceptor(ApiKeyInterceptor(BuildConfig.OMDB_API_KEY))
         .build()
 
     @Provides

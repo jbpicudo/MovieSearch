@@ -20,6 +20,7 @@ coroutines = "1.11.0"
 playServicesAds = "25.5.0"
 junit = "4.13.2"
 mockk = "1.14.11"
+turbine = "1.2.1"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 
@@ -63,6 +64,7 @@ play-services-ads = { module = "com.google.android.gms:play-services-ads", versi
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 

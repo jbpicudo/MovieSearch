@@ -1,9 +1,17 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+}
+
+// The OMDb key lives in local.properties (git-ignored), never in the repository.
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
 }
 
 android {
@@ -18,6 +26,9 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
+
+        val omdbKey = localProperties.getProperty("OMDB_API_KEY", "")
+        buildConfigField("String", "OMDB_API_KEY", "\"$omdbKey\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,6 +47,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -43,6 +55,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    implementation(project(":SDK"))
 
     // UI
     val composeBom = platform(libs.compose.bom)
@@ -74,6 +88,7 @@ dependencies {
 
     // Unit tests
     testImplementation(libs.junit)
+    testImplementation(libs.turbine)
     testImplementation(libs.kotlinx.coroutines.test)
 
     // Android tests

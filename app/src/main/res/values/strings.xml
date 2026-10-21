@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">MovieSearch</string>
+    <string name="app_name">Movie Search</string>
+    <string name="search_placeholder">Search movies</string>
+    <string name="search_hint">Type a keyword to find movies</string>
+    <string name="search_no_results">No movies match your search. Try another keyword.</string>
+    <string name="error_network">No internet connection. Check your network and try again.</string>
+    <string name="error_unknown">Something went wrong. Try again.</string>
+    <string name="retry">Try again</string>
+    <string name="clear">Clear search</string>
+    <string name="back">Back</string>
+    <string name="favorites">Favorites</string>
+    <string name="favorites_empty">No favorites yet. Open a movie and tap the heart to save it.</string>
+    <string name="add_favorite">Add to favorites</string>
+    <string name="remove_favorite">Remove from favorites</string>
+    <string name="details_type">Type: %1$s</string>
+    <string name="details_year">Year: %1$s</string>
 </resources>
